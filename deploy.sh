@@ -11,6 +11,11 @@ fi
 stellar --version
 
 echo "Setting up Rust toolchain..."
+if ! command -v rustup &> /dev/null
+then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source $HOME/.cargo/env
+fi
 rustup default stable
 rustup update stable
 rustup target add wasm32-unknown-unknown
