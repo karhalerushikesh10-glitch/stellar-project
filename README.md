@@ -1,57 +1,222 @@
 # StellarPay Simple
 
-## Description
-StellarPay Simple is a fast, robust, and full-featured decentralized application built on the Stellar network. It enables users to check balances, transfer XLM, and interact directly with complex smart contracts such as Payment Splitters, Counters, and Reward systems.
+> A Stellar Testnet dApp for sending XLM, interacting with deployed
+> Soroban smart contracts, splitting payments across multiple
+> recipients, and tracking live on-chain events — built with
+> Next.js, TypeScript, and the Stellar SDK.
 
-## Live Demo
-TBD
+![CI/CD](https://github.com/YOUR_USERNAME/stellar-project/actions/workflows/ci.yml/badge.svg)
+![Tests](https://img.shields.io/badge/tests-9%20passing-brightgreen)
+![Network](https://img.shields.io/badge/network-Stellar%20Testnet-blue)
 
-## Setup Instructions
+---
+
+## 🔗 Live Demo
+
+[https://YOUR-APP.vercel.app](https://YOUR-APP.vercel.app)
+
+---
+
+## 📖 Project Description
+
+StellarPay Simple lets users connect a Stellar wallet (Freighter,
+xBull, or Albedo), view their live XLM balance, send testnet
+payments, interact with a deployed Soroban counter contract,
+split payments across multiple recipients with automatic SDT
+reward minting via an inter-contract call, and watch contract
+events stream in real time. Built as a complete, production-style
+dApp with full test coverage, CI/CD, and mobile responsive design.
+
+---
+
+## ⚙️ Setup Instructions
+
+### Prerequisites
+- Node.js 18 or higher
+- Freighter, xBull, or Albedo browser wallet extension
+
+### Install and Run
+
 ```bash
-git clone <repo-url>
-cd stellar-pay-simple
+git clone https://github.com/YOUR_USERNAME/stellar-project.git
+cd stellar-project
 npm install
 cp .env.example .env.local
 npm run dev
 ```
 
-## Environment Variables
-- `NEXT_PUBLIC_STELLAR_NETWORK`
-- `NEXT_PUBLIC_HORIZON_URL`
-- `NEXT_PUBLIC_SOROBAN_RPC`
-- `NEXT_PUBLIC_NETWORK_PASSPHRASE`
-- `NEXT_PUBLIC_COUNTER_CONTRACT_ID`
-- `NEXT_PUBLIC_REWARD_CONTRACT_ADDRESS`
-- `NEXT_PUBLIC_PAYMENT_SPLITTER_ADDRESS`
-- `NEXT_PUBLIC_SDT_TOKEN_ADDRESS`
+Open [http://localhost:3000](http://localhost:3000)
 
-## Contract Addresses
-- **Counter:** `CD6GNBSUK5TSALO7Z54J6GKBSBNVO3O63RCAHACGGC5T2ZTRBN3NVZQT`
-- **Reward:** `CD3PHVTAJUUR63NREUJPQKZB4OWYJMR7D5HVBC6SHXOLOZACQT5MQGHN`
-- **Payment Splitter:** `CC232VO636IBZC7MMLSVIODN7QMM7KWEXW5YU6UF3M4S63IKA2YZJPYR`
-- **SDT Token:** `CBTM3S5MOJ6PC7WP6QCSJ7RJA3TGEDP2Q4VBUT7NKBSRAU46FPV5QPEI`
+### Environment Variables
 
-## Verified Transactions
-- **Deploy Counter:** [9878589f6f0d89057844f5fdf489a4704591f51f7cf0a15a83d414447a030675](https://stellar.expert/explorer/testnet/tx/9878589f6f0d89057844f5fdf489a4704591f51f7cf0a15a83d414447a030675)
-- **Deploy Reward:** [dffeb9f2f04b215a61245e6c064ac11216e59f801e84f9941b077f0d8569325f](https://stellar.expert/explorer/testnet/tx/dffeb9f2f04b215a61245e6c064ac11216e59f801e84f9941b077f0d8569325f)
-- **Deploy Payment Splitter:** [4f1de17882af070c5a739156ba1fdf39cfa83e326e31d0beb9d9cf0fbc017484](https://stellar.expert/explorer/testnet/tx/4f1de17882af070c5a739156ba1fdf39cfa83e326e31d0beb9d9cf0fbc017484)
-- **Deploy SDT Token:** [7f80b3ba4e34399410108c0c4e82c95c37945e5b43be8769f3656e2a279f4b49](https://stellar.expert/explorer/testnet/tx/7f80b3ba4e34399410108c0c4e82c95c37945e5b43be8769f3656e2a279f4b49)
+```env
+NEXT_PUBLIC_STELLAR_NETWORK=TESTNET
+NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
+NEXT_PUBLIC_SOROBAN_RPC=https://soroban-testnet.stellar.org
+NEXT_PUBLIC_NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
+NEXT_PUBLIC_COUNTER_CONTRACT_ID=CD6GNBSUK5TSALO7Z54J6GKBSBNVO3O63RCAHACGGC5T2ZTRBN3NVZQT
+NEXT_PUBLIC_REWARD_CONTRACT_ADDRESS=CD3PHVTAJUUR63NREUJPQKZB4OWYJMR7D5HVBC6SHXOLOZACQT5MQGHN
+NEXT_PUBLIC_PAYMENT_SPLITTER_ADDRESS=CC232VO636IBZC7MMLSVIODN7QMM7KWEXW5YU6UF3M4S63IKA2YZJPYR
+NEXT_PUBLIC_SDT_TOKEN_ADDRESS=CBTM3S5MOJ6PC7WP6QCSJ7RJA3TGEDP2Q4VBUT7NKBSRAU46FPV5QPEI
+```
 
-## Screenshots
-- Wallet connected state
-- Balance displayed
-- Successful transaction
-- Transaction result shown
-- Wallet options available
-- Mobile responsive view
-- CI/CD pipeline running
-- Test output showing passing tests
+### How to Use
 
-## Tests
+1. Install [Freighter](https://www.freighter.app) and switch it to Testnet
+2. Click **Connect Wallet** and choose your wallet from the picker
+3. Click **Fund with Testnet XLM** to receive free testnet funds
+4. Use **Send XLM** to send a payment to any Stellar address
+5. Click **Increment Counter** to call the deployed Soroban contract
+6. Use **Split Payment** to divide XLM between multiple recipients
+7. Watch the **Activity Feed** for live on-chain events
+
+---
+
+## 📸 Screenshots
+
+### Wallet Options Available
+![Wallet Picker](./screenshots/wallet-options.png)
+
+### Wallet Connected State
+![Wallet Connected](./screenshots/wallet-connected.png)
+
+### Balance Displayed
+![Balance](./screenshots/balance.png)
+
+### Successful Testnet Transaction
+![Transaction Success](./screenshots/tx-success.png)
+
+### Transaction Result Shown to User
+![Transaction Result](./screenshots/tx-result.png)
+
+### Mobile Responsive View
+![Mobile View](./screenshots/mobile.png)
+
+### CI/CD Pipeline Running
+![CI/CD](./screenshots/cicd.png)
+
+### Test Output — 9 Tests Passing
+![Tests Passing](./screenshots/tests-passing.png)
+
+---
+
+## 🎥 Demo Video
+
+[▶️ Watch Demo (1–2 min)](YOUR_LOOM_OR_YOUTUBE_LINK)
+
+---
+
+## 📋 Deployed Contract Addresses
+
+All contracts are live and verified on Stellar Testnet.
+
+| Contract         | Address |
+|------------------|---------|
+| Counter          | `CD6GNBSUK5TSALO7Z54J6GKBSBNVO3O63RCAHACGGC5T2ZTRBN3NVZQT` |
+| Payment Splitter | `CC232VO636IBZC7MMLSVIODN7QMM7KWEXW5YU6UF3M4S63IKA2YZJPYR` |
+| Reward Contract  | `CD3PHVTAJUUR63NREUJPQKZB4OWYJMR7D5HVBC6SHXOLOZACQT5MQGHN` |
+| SDT Token        | `CBTM3S5MOJ6PC7WP6QCSJ7RJA3TGEDP2Q4VBUT7NKBSRAU46FPV5QPEI` |
+
+🔍 Verify on [Stellar Expert Testnet](https://stellar.expert/explorer/testnet)
+
+---
+
+## ✅ Verified Transaction Hashes
+
+| Action | Hash | Explorer Link |
+|---|---|---|
+| Counter contract deployed | `PASTE_REAL_HASH` | [View](https://stellar.expert/explorer/testnet/tx/PASTE_REAL_HASH) |
+| Counter increment called | `PASTE_REAL_HASH` | [View](https://stellar.expert/explorer/testnet/tx/PASTE_REAL_HASH) |
+| Payment split executed | `PASTE_REAL_HASH` | [View](https://stellar.expert/explorer/testnet/tx/PASTE_REAL_HASH) |
+| Reward minted (inter-contract call) | `PASTE_REAL_HASH` | [View](https://stellar.expert/explorer/testnet/tx/PASTE_REAL_HASH) |
+| XLM payment sent | `PASTE_REAL_HASH` | [View](https://stellar.expert/explorer/testnet/tx/PASTE_REAL_HASH) |
+
+---
+
+## 🧪 Tests
+
 ```bash
 npm test
+npm run test:coverage
 ```
-Tests passed: 9
 
-## Tech Stack
-Next.js, TypeScript, Tailwind CSS, @stellar/stellar-sdk, @stellar/freighter-api, @creit.tech/stellar-wallets-kit, Soroban (Rust), Jest, GitHub Actions, Vercel
+| Suite | Tests | Status |
+|---|---|---|
+| stellar.test.ts | 5 | ✅ Passing |
+| transactions.test.ts | 2 | ✅ Passing |
+| BalanceCard.test.tsx | 2 | ✅ Passing |
+| **Total** | **9** | ✅ All Passing |
+
+---
+
+## 🔐 Error Handling
+
+| Error Type | When It Occurs | What the User Sees |
+|---|---|---|
+| `WalletNotFoundError` | Wallet extension not installed | Install prompt with link |
+| `UserRejectedError` | User cancels signing in wallet | Soft cancellation message |
+| `InsufficientBalanceError` | Balance too low for transaction | Highlighted amount field with shortfall |
+
+All Horizon transaction errors are parsed into human-readable
+messages via result code mapping in `lib/errors.ts`.
+
+---
+
+## 🏗️ Smart Contract Architecture
+
+**Counter Contract** — `initialize`, `increment`, `get_count`, `reset`
+
+**Payment Splitter Contract** — `initialize`, `split_payment`,
+`get_total_splits`. Calls the Reward contract internally after a
+successful split (inter-contract communication).
+
+**Reward Contract** — `initialize`, `mint_reward`. Mints SDT
+tokens to the payer whenever the Payment Splitter completes a
+distribution.
+
+**SDT Token** — SEP-0041 standard token minted as a loyalty
+reward for using the Payment Splitter.
+
+---
+
+## ⚙️ CI/CD Pipeline
+
+GitHub Actions runs automatically on every push to `main`:
+
+| Job | What It Does |
+|---|---|
+| Lint | TypeScript type checking |
+| Test | Runs full Jest suite |
+| Build | Verifies production build |
+| Deploy | Auto-deploys to Vercel on main branch |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 14+ (App Router), TypeScript |
+| Styling | Tailwind CSS |
+| Stellar SDK | @stellar/stellar-sdk |
+| Wallet Kit | @creit.tech/stellar-wallets-kit |
+| Smart Contracts | Soroban (Rust) |
+| Testing | Jest + React Testing Library |
+| CI/CD | GitHub Actions |
+| Deployment | Vercel |
+
+---
+
+## 🌐 Network Reference
+
+| Property | Value |
+|---|---|
+| Network | Stellar Testnet |
+| Horizon URL | https://horizon-testnet.stellar.org |
+| Soroban RPC | https://soroban-testnet.stellar.org |
+| Network Passphrase | Test SDF Network ; September 2015 |
+| Explorer | https://stellar.expert/explorer/testnet |
+
+---
+
+## 📂 Project Structure
