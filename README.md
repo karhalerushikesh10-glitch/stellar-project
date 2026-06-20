@@ -50,7 +50,8 @@ Open [http://localhost:3000](http://localhost:3000)
 ![Mobile](./screenshots/mobile.png)
 
 ### CI/CD Pipeline Running
-![CI/CD](./screenshots/cicd.png)
+![CI/CD](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a63fe5a3-5bf4-4d07-9167-b414e9bd6968" />
+)
 
 ### Test Output — 9 Tests Passing
 ![Tests Passing](./screenshots/tests-passing.png)
