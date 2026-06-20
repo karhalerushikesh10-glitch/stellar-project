@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
       - name: Lint
         run: npx tsc --noEmit
 
@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: 18
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
       - name: Test
         run: npm test -- --coverage --ci --passWithNoTests
 
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: 18
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
       - name: Build
         env:
           NEXT_PUBLIC_STELLAR_NETWORK: TESTNET
