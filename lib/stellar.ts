@@ -17,3 +17,18 @@ export async function getXLMBalance(publicKey: string): Promise<string> {
     return "0.0000"; 
   }
 }
+
+export function isValidStellarAddress(address: string): boolean {
+  if (!address || typeof address !== "string") return false;
+  return address.length === 56 && address.startsWith("G");
+}
+
+export async function fundTestnetAccount(address: string): Promise<boolean> {
+  try {
+    const res = await fetch(`https://friendbot.stellar.org/?addr=${address}`);
+    return res.ok;
+  } catch (error) {
+    console.error("Funding failed", error);
+    return false;
+  }
+}

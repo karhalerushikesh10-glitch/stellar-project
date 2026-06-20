@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StellarPay Simple
 
-## Getting Started
+## Description
+StellarPay Simple is a fast, robust, and full-featured decentralized application built on the Stellar network. It enables users to check balances, transfer XLM, and interact directly with complex smart contracts such as Payment Splitters, Counters, and Reward systems.
 
-First, run the development server:
+## Live Demo
+TBD
 
+## Setup Instructions
 ```bash
+git clone <repo-url>
+cd stellar-pay-simple
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
+- `NEXT_PUBLIC_STELLAR_NETWORK`
+- `NEXT_PUBLIC_HORIZON_URL`
+- `NEXT_PUBLIC_SOROBAN_RPC`
+- `NEXT_PUBLIC_NETWORK_PASSPHRASE`
+- `NEXT_PUBLIC_COUNTER_CONTRACT_ID`
+- `NEXT_PUBLIC_REWARD_CONTRACT_ADDRESS`
+- `NEXT_PUBLIC_PAYMENT_SPLITTER_ADDRESS`
+- `NEXT_PUBLIC_SDT_TOKEN_ADDRESS`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contract Addresses
+PENDING — awaiting deploy.sh output
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Verified Transactions
+PENDING — awaiting deploy.sh output
 
-## Learn More
+## Screenshots
+- Wallet connected state
+- Balance displayed
+- Successful transaction
+- Transaction result shown
+- Wallet options available
+- Mobile responsive view
+- CI/CD pipeline running
+- Test output showing passing tests
 
-To learn more about Next.js, take a look at the following resources:
+## Tests
+```bash
+npm test
+```
+Tests passed: 9
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+Next.js, TypeScript, Tailwind CSS, @stellar/stellar-sdk, @stellar/freighter-api, @creit.tech/stellar-wallets-kit, Soroban (Rust), Jest, GitHub Actions, Vercel
