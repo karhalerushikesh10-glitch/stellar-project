@@ -13,7 +13,7 @@
 
 ## 🔗 Live Demo
 
-[https://YOUR-APP.vercel.app](https://YOUR-APP.vercel.app)
+[https://6a36fe86663c3c5467f5bf25--fluffy-meerkat-897d92.netlify.app/](https://6a36fe86663c3c5467f5bf25--fluffy-meerkat-897d92.netlify.app/)
 
 ---
 
