@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useWallet } from "@/context/WalletContext";
 import { FREIGHTER_ID, ALBEDO_ID, XBULL_ID } from "@/lib/wallet";
 
@@ -12,6 +13,11 @@ const WALLETS = [
 export function WalletModal({ onClose }: { onClose: () => void }) {
   const { connect } = useWallet();
   const [loadingId, setLoadingId] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleConnect = async (id: string) => {
     setLoadingId(id);
@@ -20,8 +26,8 @@ export function WalletModal({ onClose }: { onClose: () => void }) {
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 bg-[rgba(43,38,32,0.5)] backdrop-blur-sm flex items-center justify-center z-50">
+  const content = (
+    <div className="fixed inset-0 bg-[rgba(43,38,32,0.5)] backdrop-blur-sm flex items-center justify-center z-[100]">
       <div className="bg-[var(--bg-surface)] border border-[var(--border-soft)] p-6 rounded-2xl w-80 text-[var(--text-primary)] shadow-[0_4px_12px_rgba(43,38,32,0.1)]">
         <h2 className="text-xl font-bold mb-4">Connect Wallet</h2>
         <div className="flex flex-col gap-3">
@@ -46,4 +52,7 @@ export function WalletModal({ onClose }: { onClose: () => void }) {
       </div>
     </div>
   );
+
+  if (!mounted) return null;
+  return createPortal(content, document.body);
 }
