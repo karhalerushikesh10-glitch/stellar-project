@@ -1,7 +1,7 @@
-import { SorobanRpc } from "@stellar/stellar-sdk";
+import { rpc } from "@stellar/stellar-sdk";
 
 const rpcUrl = process.env.NEXT_PUBLIC_SOROBAN_RPC || "https://soroban-testnet.stellar.org:443";
-const server = new SorobanRpc.Server(rpcUrl);
+const server = new rpc.Server(rpcUrl);
 
 export async function fetchContractEvents(contractIds: string[], startLedger: number) {
   if (!contractIds || contractIds.length === 0) return [];

@@ -26,10 +26,16 @@ npm run dev
 - `NEXT_PUBLIC_SDT_TOKEN_ADDRESS`
 
 ## Contract Addresses
-PENDING — awaiting deploy.sh output
+- **Counter:** `CD6GNBSUK5TSALO7Z54J6GKBSBNVO3O63RCAHACGGC5T2ZTRBN3NVZQT`
+- **Reward:** `CD3PHVTAJUUR63NREUJPQKZB4OWYJMR7D5HVBC6SHXOLOZACQT5MQGHN`
+- **Payment Splitter:** `CC232VO636IBZC7MMLSVIODN7QMM7KWEXW5YU6UF3M4S63IKA2YZJPYR`
+- **SDT Token:** `CBTM3S5MOJ6PC7WP6QCSJ7RJA3TGEDP2Q4VBUT7NKBSRAU46FPV5QPEI`
 
 ## Verified Transactions
-PENDING — awaiting deploy.sh output
+- **Deploy Counter:** [9878589f6f0d89057844f5fdf489a4704591f51f7cf0a15a83d414447a030675](https://stellar.expert/explorer/testnet/tx/9878589f6f0d89057844f5fdf489a4704591f51f7cf0a15a83d414447a030675)
+- **Deploy Reward:** [dffeb9f2f04b215a61245e6c064ac11216e59f801e84f9941b077f0d8569325f](https://stellar.expert/explorer/testnet/tx/dffeb9f2f04b215a61245e6c064ac11216e59f801e84f9941b077f0d8569325f)
+- **Deploy Payment Splitter:** [4f1de17882af070c5a739156ba1fdf39cfa83e326e31d0beb9d9cf0fbc017484](https://stellar.expert/explorer/testnet/tx/4f1de17882af070c5a739156ba1fdf39cfa83e326e31d0beb9d9cf0fbc017484)
+- **Deploy SDT Token:** [7f80b3ba4e34399410108c0c4e82c95c37945e5b43be8769f3656e2a279f4b49](https://stellar.expert/explorer/testnet/tx/7f80b3ba4e34399410108c0c4e82c95c37945e5b43be8769f3656e2a279f4b49)
 
 ## Screenshots
 - Wallet connected state

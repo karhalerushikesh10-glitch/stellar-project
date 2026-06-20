@@ -1,8 +1,8 @@
-import { SorobanRpc, Contract, TransactionBuilder, Networks, xdr, Address } from "@stellar/stellar-sdk";
+import { rpc, Contract, TransactionBuilder, Networks, xdr, Address } from "@stellar/stellar-sdk";
 import { kit } from "./wallet";
 
 const rpcUrl = process.env.NEXT_PUBLIC_SOROBAN_RPC || "https://soroban-testnet.stellar.org:443";
-const server = new SorobanRpc.Server(rpcUrl);
+const server = new rpc.Server(rpcUrl);
 const NETWORK_PASSPHRASE = process.env.NEXT_PUBLIC_NETWORK_PASSPHRASE || Networks.TESTNET;
 const COUNTER_CONTRACT_ID = process.env.NEXT_PUBLIC_COUNTER_CONTRACT_ID || "";
 const SPLITTER_ADDRESS = process.env.NEXT_PUBLIC_PAYMENT_SPLITTER_ADDRESS || "";
@@ -22,7 +22,7 @@ export async function getCount(): Promise<number> {
       .build();
 
     const simulation = await server.simulateTransaction(tx);
-    if (SorobanRpc.Api.isSimulationSuccess(simulation)) {
+    if (rpc.Api.isSimulationSuccess(simulation)) {
       const result = simulation.result?.retval;
       if (result && result.switch() === xdr.ScValType.scvU32()) {
           return result.u32();
@@ -58,7 +58,7 @@ export async function callIncrement(publicKey: string): Promise<{ success: boole
     const response = await server.sendTransaction(signedTransaction);
 
     if (response.status === "ERROR") {
-      return { success: false, error: response.errorResultXdr || "RPC Error" };
+      return { success: false, error: (response as any).errorResultXdr || "RPC Error" };
     }
     return { success: true, hash: response.hash };
   } catch (error: any) {

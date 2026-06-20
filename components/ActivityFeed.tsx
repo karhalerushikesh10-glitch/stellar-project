@@ -35,7 +35,7 @@ export function ActivityFeed() {
           const unique = Array.from(new Map(combined.map(item => [item.id, item])).values());
           return unique.slice(0, 20); 
         });
-        currentLedger = parseInt(newEvents[newEvents.length - 1].ledger) + 1;
+        currentLedger = Number(newEvents[newEvents.length - 1].ledger) + 1;
       }
     };
 

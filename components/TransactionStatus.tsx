@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { SorobanRpc } from "@stellar/stellar-sdk";
+import { rpc } from "@stellar/stellar-sdk";
 
 export function TransactionStatus({ hash }: { hash: string }) {
   const [status, setStatus] = useState<string>("PENDING");
@@ -10,7 +10,7 @@ export function TransactionStatus({ hash }: { hash: string }) {
     
     let interval: any;
     const rpcUrl = process.env.NEXT_PUBLIC_SOROBAN_RPC || "https://soroban-testnet.stellar.org:443";
-    const server = new SorobanRpc.Server(rpcUrl);
+    const server = new rpc.Server(rpcUrl);
 
     const checkStatus = async () => {
       try {

@@ -1,16 +1,31 @@
+if (typeof window === "undefined") {
+  (global as any).localStorage = {
+    getItem: () => null,
+    setItem: () => {},
+    removeItem: () => {},
+    clear: () => {},
+    key: () => null,
+    length: 0
+  };
+}
+
 import { StellarWalletsKit } from "@creit.tech/stellar-wallets-kit";
 import { FreighterModule, FREIGHTER_ID } from "@creit.tech/stellar-wallets-kit/modules/freighter";
 import { xBullModule, XBULL_ID } from "@creit.tech/stellar-wallets-kit/modules/xbull";
 import { AlbedoModule, ALBEDO_ID } from "@creit.tech/stellar-wallets-kit/modules/albedo";
 import { WalletNotFoundError } from "./errors";
 
-StellarWalletsKit.init({
-  network: "TESTNET" as any,
-  selectedWalletId: FREIGHTER_ID,
-  modules: [new FreighterModule(), new (xBullModule as any)(), new AlbedoModule()],
-});
+export let kit: any;
 
-export const kit = StellarWalletsKit;
+if (typeof window !== "undefined") {
+  StellarWalletsKit.init({
+    network: "TESTNET" as any,
+    selectedWalletId: FREIGHTER_ID,
+    modules: [new FreighterModule(), new (xBullModule as any)(), new AlbedoModule()],
+  });
+  kit = StellarWalletsKit;
+}
+
 export { FREIGHTER_ID, XBULL_ID, ALBEDO_ID };
 
 export type WalletResult = {
