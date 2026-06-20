@@ -49,9 +49,6 @@ Open [http://localhost:3000](http://localhost:3000)
 ### Mobile Responsive View
 ![Mobile](./screenshots/mobile.png)
 
-### CI/CD Pipeline Running
-![CI/CD](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a63fe5a3-5bf4-4d07-9167-b414e9bd6968" />
-)
 
 ### Test Output — 9 Tests Passing
 ![Tests Passing](./screenshots/tests-passing.png)
@@ -73,7 +70,6 @@ All contracts are live and verified on Stellar Testnet.
 
 | Action | Hash | Explorer Link |
 |---|---|---|
-| Counter contract deployed | `8e7081d6789802b1e09880d91b3ffe9e6c08bb4bc738a2b417cf6da3ddda2ee7` | [View](https://stellar.expert/explorer/testnet/tx/8e7081d6789802b1e09880d91b3ffe9e6c08bb4bc738a2b417cf6da3ddda2ee7) |
 | Counter increment called | `90d85ac49aaa2e1dfa0c8f04722b6a3bbb1594b65c96d6f0e2b1d59a46674040` | [View](https://stellar.expert/explorer/testnet/tx/90d85ac49aaa2e1dfa0c8f04722b6a3bbb1594b65c96d6f0e2b1d59a46674040) |
 | Payment split executed | `c0394c0c19e80bc461c5851027fef61e62a36469b9e06ce006e9edd1e2f3de2b` | [View](https://stellar.expert/explorer/testnet/tx/c0394c0c19e80bc461c5851027fef61e62a36469b9e06ce006e9edd1e2f3de2b) |
 | Reward minted (inter-contract call) | `c0394c0c19e80bc461c5851027fef61e62a36469b9e06ce006e9edd1e2f3de2b` | [View](https://stellar.expert/explorer/testnet/tx/c0394c0c19e80bc461c5851027fef61e62a36469b9e06ce006e9edd1e2f3de2b) |
