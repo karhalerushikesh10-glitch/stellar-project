@@ -31,11 +31,15 @@ export function FaucetButton() {
       <button 
         onClick={fundAccount} 
         disabled={loading}
-        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50 transition"
+        className="w-full px-4 py-2 bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:bg-[var(--bg-sunken)] border border-[var(--border-medium)] rounded font-medium transition shadow-[0_1px_3px_rgba(43,38,32,0.06)]"
       >
         {loading ? "Funding..." : "Fund with Friendbot"}
       </button>
-      {message && <p className="text-sm mt-2 text-gray-700">{message}</p>}
+      {message && (
+        <p className={`text-sm mt-2 px-3 py-1 rounded border ${message.includes("success") ? "text-[var(--success)] bg-[var(--success-bg)] border-[var(--success-border)]" : "text-[var(--error)] bg-[var(--error-bg)] border-[var(--error-border)]"}`}>
+          {message}
+        </p>
+      )}
     </div>
   );
 }

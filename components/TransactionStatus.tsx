@@ -31,9 +31,9 @@ export function TransactionStatus({ hash }: { hash: string }) {
   }, [hash]);
 
   return (
-    <div className="p-2 border rounded mt-2 text-sm bg-white">
-      <span className="font-semibold text-gray-700">Status: </span>
-      <span className={status === "SUCCESS" ? "text-green-500 font-bold" : status === "FAILED" ? "text-red-500 font-bold" : "text-yellow-500 font-bold"}>
+    <div className="p-2 border border-[var(--border-soft)] rounded mt-2 text-sm bg-[var(--bg-elevated)]">
+      <span className="font-semibold text-[var(--text-secondary)]">Status: </span>
+      <span className={status === "SUCCESS" ? "text-[var(--success)] font-bold" : status === "FAILED" ? "text-[var(--error)] font-bold" : "text-[var(--warning)] font-bold"}>
         {status}
       </span>
     </div>

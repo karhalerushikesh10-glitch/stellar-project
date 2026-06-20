@@ -43,13 +43,13 @@ export function ActivityFeed() {
     return () => clearInterval(interval);
   }, []);
 
-  if (loading) return <div className="p-4 bg-white border rounded text-black">Loading activity feed...</div>;
+  if (loading) return <div className="p-4 bg-[var(--bg-surface)] border border-[var(--border-soft)] rounded-2xl text-[var(--text-secondary)] shadow-[0_1px_3px_rgba(43,38,32,0.06)]">Loading activity feed...</div>;
 
   return (
-    <div className="p-4 border rounded bg-white text-black shadow-sm h-64 overflow-y-auto">
-      <h3 className="text-lg font-bold mb-4">Live Activity Feed</h3>
+    <div className="p-4 bg-[var(--bg-surface)] border border-[var(--border-soft)] shadow-[0_1px_3px_rgba(43,38,32,0.06)] h-64 overflow-y-auto rounded-2xl">
+      <h3 className="text-lg font-bold mb-4 text-[var(--text-primary)]">Live Activity Feed</h3>
       {events.length === 0 ? (
-        <p className="text-gray-500">No recent events.</p>
+        <p className="text-[var(--text-hint)]">No recent events.</p>
       ) : (
         <ul className="flex flex-col gap-2">
           {events.map((ev, idx) => {
@@ -59,10 +59,13 @@ export function ActivityFeed() {
              } catch(e) { topicStr = "Event"; }
 
              return (
-               <li key={idx} className="p-2 border rounded bg-gray-50 text-sm flex flex-col">
-                  <span className="font-semibold">{topicStr}</span>
-                  <span className="text-xs text-gray-500">Contract: {ev.contractId.slice(0,10)}...</span>
-                  <span className="text-xs text-gray-500">Ledger: {ev.ledger}</span>
+               <li key={idx} className="p-3 border border-[var(--border-soft)] rounded-xl bg-[var(--bg-elevated)] text-sm flex flex-col hover:bg-[var(--bg-sunken)] transition">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className={`w-2 h-2 rounded-full ${topicStr.includes('INCREMENT') ? 'bg-[var(--accent)]' : topicStr.includes('SPLIT') ? 'bg-[var(--secondary)]' : topicStr.includes('TRANSFER') ? 'bg-[var(--success)]' : 'bg-[var(--info)]'}`}></span>
+                    <span className="font-semibold text-[var(--text-primary)]">{topicStr}</span>
+                  </div>
+                  <span className="text-xs text-[var(--text-secondary)]">Contract: {String(ev.contractId || "").slice(0,10)}...</span>
+                  <span className="text-xs text-[var(--text-secondary)]">Ledger: {ev.ledger}</span>
                </li>
              );
           })}

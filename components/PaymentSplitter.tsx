@@ -43,12 +43,12 @@ export function PaymentSplitter() {
   };
 
   return (
-    <div className="p-4 border rounded bg-white text-black shadow-sm">
-      <h3 className="text-lg font-bold mb-4">Payment Splitter</h3>
+    <div className="bg-[var(--bg-surface)] border border-[var(--border-soft)] shadow-[0_1px_3px_rgba(43,38,32,0.06)] p-4 rounded-2xl text-[var(--text-primary)]">
+      <h2 className="text-lg font-bold mb-4">Payment Splitter</h2>
       <div className="mb-4">
-        <label className="block text-sm font-semibold mb-1">Total Amount (in basic units)</label>
+        <label className="text-sm font-medium text-[var(--text-secondary)]">Total Amount (in basic units)</label>
         <input 
-          className="w-full border p-2 rounded text-black" 
+          className="w-full bg-[var(--bg-sunken)] border border-[var(--border-medium)] rounded p-2 mt-1 text-[var(--text-primary)] placeholder-[var(--text-hint)] focus:outline-none focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(194,112,61,0.12)] transition"
           value={amount} 
           onChange={(e) => setAmount(e.target.value)} 
           placeholder="e.g. 10000000" 
@@ -56,33 +56,33 @@ export function PaymentSplitter() {
       </div>
       
       <div className="mb-4 flex flex-col gap-2">
-        <label className="block text-sm font-semibold">Recipients (up to 10)</label>
+        <label className="text-sm font-medium text-[var(--text-secondary)]">Recipients (up to 10)</label>
         {recipients.map((r, i) => (
           <input 
             key={i} 
-            className="w-full border p-2 rounded text-black text-sm" 
+            className="w-full bg-[var(--bg-sunken)] border border-[var(--border-medium)] rounded p-2 text-sm text-[var(--text-primary)] placeholder-[var(--text-hint)] focus:outline-none focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(194,112,61,0.12)] transition"
             value={r} 
             onChange={(e) => handleUpdate(i, e.target.value)} 
             placeholder={`Recipient ${i+1} G...`} 
           />
         ))}
         {recipients.length < 10 && (
-          <button onClick={handleAdd} className="text-blue-500 text-sm self-start">+ Add Recipient</button>
+          <button onClick={handleAdd} className="text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] text-left transition mt-1">+ Add Recipient</button>
         )}
       </div>
 
       <button 
         onClick={handleSplit} 
         disabled={loading || !publicKey}
-        className="w-full py-2 bg-green-500 text-white rounded disabled:opacity-50"
+        className="w-full px-4 py-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded transition disabled:opacity-50 shadow-[0_1px_3px_rgba(43,38,32,0.06)]"
       >
         {loading ? "Splitting..." : "Split Payment"}
       </button>
 
-      {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
+      {error && <p className="text-[var(--error)] text-sm mt-4 bg-[var(--error-bg)] border border-[var(--error-border)] px-3 py-2 rounded">{error}</p>}
       {hash && (
-        <p className="text-green-500 mt-2 text-sm">
-          Success! Hash: <a href={`https://stellar.expert/explorer/testnet/tx/${hash}`} target="_blank" rel="noreferrer" className="underline">{hash.slice(0,10)}...</a>
+        <p className="mt-4 p-3 bg-[var(--success-bg)] border border-[var(--success-border)] rounded text-sm text-[var(--success)]">
+          Success! Hash: <a href={`https://stellar.expert/explorer/testnet/tx/${hash}`} target="_blank" rel="noreferrer" className="font-bold underline decoration-[var(--success)] underline-offset-2">{hash.slice(0,10)}...</a>
         </p>
       )}
     </div>

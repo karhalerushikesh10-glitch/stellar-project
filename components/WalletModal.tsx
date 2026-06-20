@@ -21,8 +21,8 @@ export function WalletModal({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl w-80 text-black">
+    <div className="fixed inset-0 bg-[rgba(43,38,32,0.5)] backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="bg-[var(--bg-surface)] border border-[var(--border-soft)] p-6 rounded-2xl w-80 text-[var(--text-primary)] shadow-[0_4px_12px_rgba(43,38,32,0.1)]">
         <h2 className="text-xl font-bold mb-4">Connect Wallet</h2>
         <div className="flex flex-col gap-3">
           {WALLETS.map((w) => (
@@ -30,16 +30,16 @@ export function WalletModal({ onClose }: { onClose: () => void }) {
               key={w.id}
               onClick={() => handleConnect(w.id)}
               disabled={!!loadingId}
-              className="p-3 border rounded hover:bg-gray-100 flex justify-between items-center transition"
+              className="p-3 border border-[var(--border-medium)] rounded-xl bg-[var(--bg-elevated)] hover:bg-[var(--bg-sunken)] flex justify-between items-center transition"
             >
-              <span>{w.name}</span>
-              {loadingId === w.id && <span className="text-sm text-gray-500">Connecting...</span>}
+              <span className="font-medium text-[var(--text-primary)]">{w.name}</span>
+              {loadingId === w.id && <span className="text-sm text-[var(--text-hint)]">Connecting...</span>}
             </button>
           ))}
         </div>
         <button 
           onClick={onClose}
-          className="mt-6 w-full p-2 text-red-500 hover:bg-red-50 rounded transition"
+          className="mt-6 w-full p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-sunken)] rounded-xl transition border border-transparent"
         >
           Cancel
         </button>

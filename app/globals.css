@@ -1,17 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Warm ambient base */
+  --bg-base:        #FAF8F5;   /* warm cream, not stark white */
+  --bg-surface:      #FFFFFF;   /* card backgrounds */
+  --bg-elevated:     #F2EDE4;   /* slightly deeper warm tone */
+  --bg-sunken:       #EFEAE2;   /* recessed areas, input backgrounds */
+
+  /* Borders */
+  --border-soft:     #E8E1D6;
+  --border-medium:   #D9CFC0;
+
+  /* Text */
+  --text-primary:    #2B2620;   /* warm near-black, not pure black */
+  --text-secondary:  #6B6155;   /* warm gray */
+  --text-hint:       #9C9286;   /* lighter warm gray */
+
+  /* Accent — warm terracotta/amber instead of purple */
+  --accent:          #C2703D;   /* warm terracotta */
+  --accent-hover:    #A85A2C;   /* deeper terracotta on hover */
+  --accent-light:    #F5E6D8;   /* light terracotta wash for backgrounds */
+  --accent-border:   #D9A876;   /* terracotta-tinted border */
+
+  /* Secondary accent — sage green for variety, not neon */
+  --secondary:       #5C7A5E;
+  --secondary-light: #E5EDE3;
+
+  /* Status colors — muted, not neon */
+  --success:         #4A7C4E;
+  --success-bg:      #E8F0E5;
+  --success-border:  #B8D1B0;
+
+  --error:           #B5482F;
+  --error-bg:        #FBEBE5;
+  --error-border:    #E5B8A4;
+
+  --warning:         #B8843A;
+  --warning-bg:      #FBF1E0;
+  --warning-border:  #E5C996;
+
+  --info:            #4A6B7C;
+  --info-bg:         #E7F0F3;
+  --info-border:     #B8D4DE;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--bg-base);
+  color: var(--text-primary);
 }

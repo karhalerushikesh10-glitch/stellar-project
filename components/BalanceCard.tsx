@@ -27,9 +27,10 @@ export function BalanceCard() {
   if (!publicKey) return null;
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md mt-4 text-center">
-      <h2 className="text-lg text-gray-500">Your Balance</h2>
-      <div className="text-4xl font-bold mt-2 text-black">{balance} XLM</div>
+    <div className="p-6 text-center">
+      <h2 className="text-sm font-medium text-[var(--text-secondary)] uppercase tracking-wider">Your Balance</h2>
+      <p className="text-[var(--text-hint)] text-sm mt-1">Native XLM</p>
+      <div className="text-3xl font-bold font-mono text-[var(--text-primary)] tracking-wider mt-2">{balance} XLM</div>
     </div>
   );
 }

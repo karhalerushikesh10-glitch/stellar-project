@@ -35,22 +35,22 @@ export function ContractCounter() {
   };
 
   return (
-    <div className="p-4 border rounded bg-white text-black shadow-sm">
-      <h3 className="text-lg font-bold mb-2">Counter Contract</h3>
-      <p className="text-gray-600 mb-4">Current Count: {count !== null ? count : "Loading..."}</p>
+    <div className="bg-[var(--bg-surface)] border border-[var(--border-soft)] shadow-[0_1px_3px_rgba(43,38,32,0.06)] p-4 rounded-2xl text-[var(--text-primary)]">
+      <h2 className="text-lg font-bold mb-4">Counter Contract</h2>
+      <p className="mb-4 text-[var(--text-secondary)]">Current Count: {count !== null ? count : "Loading..."}</p>
       
       <button 
         onClick={handleIncrement} 
         disabled={loading || !publicKey}
-        className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+        className="px-4 py-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded transition disabled:opacity-50 shadow-[0_1px_3px_rgba(43,38,32,0.06)]"
       >
         {loading ? "Incrementing..." : "Increment Count"}
       </button>
 
-      {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
+      {error && <p className="text-[var(--error)] text-sm mt-4 bg-[var(--error-bg)] border border-[var(--error-border)] px-3 py-2 rounded">{error}</p>}
       {hash && (
-        <p className="text-green-500 mt-2 text-sm">
-          Success! Hash: <a href={`https://stellar.expert/explorer/testnet/tx/${hash}`} target="_blank" rel="noreferrer" className="underline">{hash.slice(0,10)}...</a>
+        <p className="mt-4 p-3 bg-[var(--success-bg)] border border-[var(--success-border)] rounded text-sm text-[var(--success)]">
+          Success! Hash: <a href={`https://stellar.expert/explorer/testnet/tx/${hash}`} target="_blank" rel="noreferrer" className="font-bold underline decoration-[var(--success)] underline-offset-2">{hash.slice(0,10)}...</a>
         </p>
       )}
     </div>
