@@ -8,6 +8,22 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
+> [!IMPORTANT]
+> ### 🔗 Quick Access & Submission Proof Links
+> 
+> - 🚀 **Live dApp URL:** [https://6a36fe86663c3c5467f5bf25--fluffy-meerkat-897d92.netlify.app/](https://6a36fe86663c3c5467f5bf25--fluffy-meerkat-897d92.netlify.app/)
+> - 📂 **Public GitHub Repository:** [https://github.com/karhalerushikesh10-glitch/stellar-project](https://github.com/karhalerushikesh10-glitch/stellar-project)
+> - 🎥 **1–2 Min Demo Video:** [https://www.loom.com/share/6c193b407a0e44099775f120f84be887](https://www.loom.com/share/6c193b407a0e44099775f120f84be887)
+
+### 📜 Smart Contract Addresses & On-Chain Verification
+
+| Contract / Proof Type | Address / Transaction Hash | Block Explorer Link |
+| :--- | :--- | :---: |
+| **Payment Splitter (Core Contract A)** | `CC232VO636IBZC7MMLSVIODN7QMM7KWEXW5YU6UF3M4S63IKA2YZJPYR` | [View on Explorer ↗](https://stellar.expert/explorer/testnet/contract/CC232VO636IBZC7MMLSVIODN7QMM7KWEXW5YU6UF3M4S63IKA2YZJPYR) |
+| **Reward Token (Secondary Contract B)** | `CD3PHVTAJUUR63NREUJPQKZB4OWYJMR7D5HVBC6SHXOLOZACQT5MQGHN` | [View on Explorer ↗](https://stellar.expert/explorer/testnet/contract/CD3PHVTAJUUR63NREUJPQKZB4OWYJMR7D5HVBC6SHXOLOZACQT5MQGHN) |
+| **Verified Inter-Contract Tx Hash** | `c0394c0c19e80bc461c5851027fef61e62a36469b9e06ce006e9edd1e2f3de2b` | [View Transaction ↗](https://stellar.expert/explorer/testnet/tx/c0394c0c19e80bc461c5851027fef61e62a36469b9e06ce006e9edd1e2f3de2b) |
+| **Counter Contract Tx Hash** | `90d85ac49aaa2e1dfa0c8f04722b6a3bbb1594b65c96d6f0e2b1d59a46674040` | [View Transaction ↗](https://stellar.expert/explorer/testnet/tx/90d85ac49aaa2e1dfa0c8f04722b6a3bbb1594b65c96d6f0e2b1d59a46674040) |
+
 
 > A Stellar Testnet dApp for sending XLM, interacting with deployed Soroban smart contracts, splitting payments across multiple recipients, and tracking live on-chain events — built with Next.js, TypeScript, and the Stellar SDK.
 
