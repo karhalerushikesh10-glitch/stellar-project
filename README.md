@@ -20,6 +20,22 @@
 
 StellarPay Simple lets users connect a Stellar wallet (Freighter, xBull, or Albedo), view their live XLM balance, send testnet payments, interact with a deployed Soroban counter contract, split payments across multiple recipients with automatic SDT reward minting via an inter-contract call, and watch contract events stream in real time. Built as a complete, production-style dApp with full test coverage, CI/CD, and mobile responsive design featuring a beautiful ambient warm aesthetic.
 
+## 💎 System Feature Breakdown
+
+| Feature Category | Implementation Details | Location / Mechanism |
+| :--- | :--- | :--- |
+| **🛡️ Access Control** | Strictly enforced `require_auth()` for admin operations and owner resets to prevent unauthorized mutations. | `contracts/counter/src/lib.rs` & `payment_splitter` |
+| **⛽ Gas Optimization** | Minimized storage reads/writes by directly passing vectors and leveraging efficient Stellar Asset Contract cross-calls instead of proxy states. | `PaymentSplitter` (`token_client.transfer`) |
+| **🚨 Error Handling Flows** | Graceful catching of RPC timeouts and user rejections via wallet. UI surfaces human-readable toasts instead of raw hex codes. | `lib/errors.ts` & UI components |
+
+> [!TIP]
+> **State Management & Resilience**
+> The dApp utilizes React Context and component-level state to cache chain data and recover gracefully from disconnected wallet states without page reloads.
+
+> [!NOTE]
+> **Security & Validation**
+> All inputs for token transfers are strictly validated on the frontend before being submitted to the Soroban RPC, saving gas on failed txs.
+
 ## ⚙️ Setup Instructions
 ### Prerequisites
 - Node.js 18 or higher
@@ -39,27 +55,26 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 📸 Screenshots
 
-### Wallet Options Available
-![Wallet Picker](./screenshots/wallet-options.png)
+<details open>
+<summary><b>Click to view Screenshots</b></summary>
+<br/>
 
-### Wallet Connected State
-![Wallet Connected](./screenshots/wallet-connected.png)
+| 1. Wallet Options Available | 2. Wallet Connected State |
+| :---: | :---: |
+| <img src="./screenshots/wallet-options.png" alt="Wallet Picker" width="400" /> | <img src="./screenshots/wallet-connected.png" alt="Wallet Connected" width="400" /> |
 
-### Balance Displayed
-![Balance](./screenshots/balance.png)
+| 3. Balance Displayed | 4. Successful Testnet Transaction |
+| :---: | :---: |
+| <img src="./screenshots/balance.png" alt="Balance" width="400" /> | <img src="./screenshots/tx-success.png" alt="Transaction Success" width="400" /> |
 
-### Successful Testnet Transaction
-![Transaction Success](./screenshots/tx-success.png)
-
-### Transaction Result Shown to User
-![Transaction Result](./screenshots/tx-result.png)
-
-### Mobile Responsive View
-![Mobile](./screenshots/mobile.png)
-
+| 5. Transaction Result Shown | 6. Mobile Responsive View |
+| :---: | :---: |
+| <img src="./screenshots/tx-result.png" alt="Transaction Result" width="400" /> | <img src="./screenshots/mobile.png" alt="Mobile View" width="220" /> |
 
 ### Test Output — 9 Tests Passing
-![Tests Passing](./screenshots/tests-passing.png)
+<img src="./screenshots/tests-passing.png" alt="Tests Passing" width="800" />
+
+</details>
 
 ## 🎥 Demo Video
 [▶️ Watch Demo (1–2 min)](https://www.loom.com/share/6c193b407a0e44099775f120f84be887)
