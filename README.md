@@ -3,6 +3,11 @@
 ![CI/CD](https://github.com/karhalerushikesh10-glitch/stellar-project/actions/workflows/ci.yml/badge.svg)
 ![Tests](https://img.shields.io/badge/tests-9%20passing-brightgreen)
 ![Network](https://img.shields.io/badge/network-Stellar%20Testnet-blue)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Soroban](https://img.shields.io/badge/Smart%20Contracts-Soroban%20Rust-purple?style=flat-square)](https://soroban.stellar.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
 
 > A Stellar Testnet dApp for sending XLM, interacting with deployed Soroban smart contracts, splitting payments across multiple recipients, and tracking live on-chain events — built with Next.js, TypeScript, and the Stellar SDK.
 
@@ -10,6 +15,9 @@
 [https://6a36fe86663c3c5467f5bf25--fluffy-meerkat-897d92.netlify.app/](https://6a36fe86663c3c5467f5bf25--fluffy-meerkat-897d92.netlify.app/)
 
 ## 📖 Project Description
+> [!NOTE]
+> StellarPay Simple demonstrates advanced smart contract capabilities, real-time event streaming, and production-ready architecture tailored for the Stellar ecosystem.
+
 StellarPay Simple lets users connect a Stellar wallet (Freighter, xBull, or Albedo), view their live XLM balance, send testnet payments, interact with a deployed Soroban counter contract, split payments across multiple recipients with automatic SDT reward minting via an inter-contract call, and watch contract events stream in real time. Built as a complete, production-style dApp with full test coverage, CI/CD, and mobile responsive design featuring a beautiful ambient warm aesthetic.
 
 ## ⚙️ Setup Instructions
@@ -98,6 +106,29 @@ npm run test:coverage
 All Horizon transaction errors are parsed into human-readable messages via result code mapping in `lib/errors.ts`.
 
 ## 🏗️ Smart Contract Architecture
+
+```mermaid
+flowchart TD
+    subgraph Frontend["User UI (Next.js App Router)"]
+        UI["React User Interface"]
+        Wallet["Stellar Wallets Kit"]
+        Streamer["Event Listener"]
+    end
+
+    subgraph StellarNetwork["Stellar Testnet / Soroban RPC"]
+        ContractA["Payment Splitter Contract"]
+        ContractB["Reward / Token Contract"]
+        RPC["Soroban RPC Feed"]
+    end
+
+    UI -->|"1. Submit Transaction"| Wallet
+    Wallet -->|"2. Invoke Method"| ContractA
+    ContractA -->|"3. Inter-Contract Call"| ContractB
+    ContractA -->|"4. Emit Events"| RPC
+    RPC -->|"5. Stream Events"| Streamer
+    Streamer -->|"6. Reactive Updates"| UI
+```
+
 **Counter Contract** — `initialize`, `increment`, `get_count`, `reset`
 
 **Payment Splitter Contract** — `initialize`, `split_payment`, `get_total_splits`. Calls the Reward contract internally after a successful split (inter-contract communication).
@@ -136,3 +167,15 @@ GitHub Actions runs automatically on every push to `main`:
 | Soroban RPC | https://soroban-testnet.stellar.org |
 | Network Passphrase | Test SDF Network ; September 2015 |
 | Explorer | https://stellar.expert/explorer/testnet |
+
+---
+
+## ✅ Submission Checklist Status
+
+- [x] **Public GitHub repository:** [Hosted and pushed](#)
+- [x] **README with setup instructions:** [Covered in Setup Instructions](#️-setup-instructions)
+- [x] **Minimum 2+ meaningful commits:** Included in repository history.
+- [x] **Live demo link:** [Available in Live Demo](#-live-demo)
+- [x] **Screenshot: wallet options available:** [Available in Screenshots](#wallet-options-available)
+- [x] **Deployed contract address:** [Available in Contract Addresses](#-deployed-contract-addresses)
+- [x] **Transaction hash of a contract call (verifiable on Stellar Explorer):** [Available in Verified Transactions](#-verified-transaction-hashes)
