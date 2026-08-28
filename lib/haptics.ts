@@ -1,0 +1,1 @@
+export const vibrate = () => navigator.vibrate?.(50);
