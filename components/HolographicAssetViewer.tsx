@@ -71,3 +71,4 @@ export const HolographicAssetViewer = ({ assetCode, balance }: { assetCode: stri
     </div>
   );
 };
+\n// Fix z-index stacking\n
