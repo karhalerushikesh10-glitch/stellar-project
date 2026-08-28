@@ -15,7 +15,7 @@ describe('AITransactionPredictor', () => {
 
   it('renders awaiting state when no parameters are provided', () => {
     render(<AITransactionPredictor />);
-    expect(screen.getByText(/Awaiting transaction parameters/i)).toBeIn随后Document();
+    expect(screen.getByText(/Awaiting transaction parameters/i)).toBeInTheDocument();
   });
 
   it('transitions from analyzing to prediction state', async () => {
