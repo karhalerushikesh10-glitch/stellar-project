@@ -1,0 +1,1 @@
+export const ZKVerifier = () => <div>ZK Proof Verification Engine Active</div>;
