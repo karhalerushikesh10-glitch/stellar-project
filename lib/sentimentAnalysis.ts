@@ -1,0 +1,1 @@
+export const getNetworkSentiment = async () => 'BULLISH';
