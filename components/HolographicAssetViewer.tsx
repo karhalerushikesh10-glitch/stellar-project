@@ -24,7 +24,7 @@ export const HolographicAssetViewer = ({ assetCode, balance }: { assetCode: stri
   };
 
   return (
-    <div className="perspective-1000 w-full max-w-sm mx-auto my-6">
+    <div className="perspective-1000 w-full max-w-sm mx-auto my-6 z-0 relative">
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
@@ -33,7 +33,7 @@ export const HolographicAssetViewer = ({ assetCode, balance }: { assetCode: stri
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
           transition: 'transform 0.1s ease-out',
         }}
-        className="relative group p-[1px] rounded-3xl overflow-hidden transform-style-3d bg-gradient-to-br from-white/10 to-white/5"
+        className="relative group p-[1px] rounded-3xl overflow-hidden transform-style-3d bg-gradient-to-br from-white/10 to-white/5 z-10"
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-fuchsia-600/30 via-transparent to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
         
@@ -71,4 +71,3 @@ export const HolographicAssetViewer = ({ assetCode, balance }: { assetCode: stri
     </div>
   );
 };
-\n// Fix z-index stacking\n
