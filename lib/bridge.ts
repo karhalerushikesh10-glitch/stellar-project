@@ -1,0 +1,1 @@
+export const initiateBridge = () => console.log('Bridging assets...');
